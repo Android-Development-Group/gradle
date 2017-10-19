@@ -132,6 +132,21 @@ configurations.compile.defaultDependencies { DependencySet deps ->
         }
     }
 
+    def "provides useful error message when withDependencies action fails to execute"() {
+        when:
+        buildFile << """
+configurations.compile.withDependencies {
+    throw new RuntimeException("Bad user code")
+}
+"""
+
+        then:
+        resolve.prepare()
+        fails ":checkDeps"
+
+        failure.assertHasCause("Bad user code")
+    }
+
     void resolvedGraph(@DelegatesTo(ResolveTestFixture.NodeBuilder) Closure closure) {
         resolve.prepare()
         succeeds ":checkDeps"
