@@ -347,6 +347,7 @@ public interface Configuration extends FileCollection, HasConfigurableAttributes
      *     <li>The {@link Configuration} itself is resolved</li>
      *     <li>Another {@link Configuration} that extends this one is resolved</li>
      *     <li>Another {@link Configuration} that references this one as a project dependency is resolved</li>
+     *     <li>The {@link Configuration} is referenced in publishing</li>
      * </ul>
      *
      * This method is useful for specifying default dependencies for a configuration:
@@ -376,6 +377,7 @@ public interface Configuration extends FileCollection, HasConfigurableAttributes
      *     <li>The {@link Configuration} itself is resolved</li>
      *     <li>Another {@link Configuration} that extends this one is resolved</li>
      *     <li>Another {@link Configuration} that references this one as a project dependency is resolved</li>
+     *     <li>The {@link Configuration} is referenced in publishing</li>
      * </ul>
      *
      * This method is useful for mutating the dependencies for a configuration:
